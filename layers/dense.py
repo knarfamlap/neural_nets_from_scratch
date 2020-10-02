@@ -1,6 +1,7 @@
 from .layer import Layer
 import numpy as np
 
+
 class Dense(Layer):
     def __init__(self, input_size, output_size):
         """
@@ -10,7 +11,7 @@ class Dense(Layer):
         """
         self.weights = np.random.rand(input_size, output_size) - 0.5
         self.bias = np.random.rand(1, output_size) - 0.5
-    
+
     def forward_propagation(self, input_data):
         self.input = input_data
         self.output = np.dot(self.input, self.weights) + self.bias
