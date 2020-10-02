@@ -3,8 +3,8 @@ import numpy as np
 
 
 class Activation(Layer):
-    def __init__(self, activation="relu"):
-        if activation == "relu":
+    def __init__(self, activation="tanh"):
+        if activation == "tanh":
             self.activation = self.tanh
             self.activation_prime = self.tanh_prime
         elif activation == 'sigmoid':
@@ -14,7 +14,8 @@ class Activation(Layer):
             self.activation = self.relu
             self.activation_prime = self.relu_prime
         else:
-            raise ValueError("Only supported activations are: relu")
+            raise ValueError(
+                "Only supported activations are: tanh, sigmoid, and relu")
 
     def forward_propagation(self, input_data):
         self.input = input_data
@@ -35,10 +36,10 @@ class Activation(Layer):
         return 1 / (1 + np.exp(-x))
 
     def sigmoid_prime(self, x):
-        return sigmoid(x) * (1 - sigmoid(x))
+        return self.sigmoid(x) * (1 - self.sigmoid(x))
 
     def relu(self, x):
-        return max(0, x)
+        return np.maximum(0, x)
 
     def relu_prime(self, x):
         return np.heaviside(x, 1)
