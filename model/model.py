@@ -1,15 +1,13 @@
+from utils.loss import mse, mse_prime
+
 class Model:
     def __init__(self):
         self.layers = []
-        self.loss = None
-        self.loss_prime = None
+        self.loss = mse
+        self.loss_prime = mse_prime
 
     def add(self, layer):
         self.layers.append(layer)
-
-    def use(self, loss, loss_prime):
-        self.loss = loss
-        self.loss_prime = loss_prime
 
     def predict(self, input_data): 
         samples = len(input_data)
