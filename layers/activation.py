@@ -13,9 +13,12 @@ class Activation(Layer):
         elif activation == 'relu':
             self.activation = self.relu
             self.activation_prime = self.relu_prime
+        elif activation == 'softmax':
+            self.activation = self.softmax
+            self.activation_prime = self.softmax_prime
         else:
             raise ValueError(
-                "Only supported activations are: tanh, sigmoid, and relu")
+                "Only supported activations are: tanh, sigmoid, relu, and softmax")
 
     def forward_propagation(self, input_data):
         self.input = input_data
@@ -43,3 +46,18 @@ class Activation(Layer):
 
     def relu_prime(self, x):
         return np.heaviside(x, 1)
+
+    def softmax(self, x):
+        return np.exp(x) / np.sum(np.exp(x), axis=0)
+
+    def softmax_prime(self, x):
+        jacobian_m = np.diag(x)
+
+        for i in range(len(jacobian_m)):
+            for j in range(len(jacobian_m)):
+                if i == j:
+                    jacobian_m[i][j] = x[i] * (1 - x[i])
+                else:
+                    jacobian_m[i][j] = -x[i] * x[j]
+
+        return jacobian_m
