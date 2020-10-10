@@ -48,15 +48,17 @@ class Activation(Layer):
         return np.heaviside(x, 1)
 
     def softmax(self, x):
-        return np.exp(x) / np.sum(np.exp(x), axis=0)
+        shift = x - np.max(x)
+        exps = np.exp(shift)
+        return exps / np.sum(exps)
 
     def softmax_prime(self, x):
-        jacobian_m = np.diag(x)
+        jacobian_m = np.empty((len(x), len(x)))
 
         for i in range(len(jacobian_m)):
             for j in range(len(jacobian_m)):
                 if i == j:
-                    jacobian_m[i][j] = x[i] * (1 - x[i])
+                    jacobian_m[i][j] = x[i] * (1 - x[j])
                 else:
                     jacobian_m[i][j] = -x[i] * x[j]
 
