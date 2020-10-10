@@ -11,30 +11,31 @@ from model.model import Model
 
 
 X_train = np.array([
-    [[-2, -1]],
-    [[25, 6]],
-    [[17, 4]],
-    [[-15, -6]]
+    [[0, 0]],
+    [[0, 1]],
+    [[1, 0]],
+    [[1, 1]]
 ])
 y_train = np.array([
-    [[1]],  # F
-    [[0]],  # M
-    [[0]],  # M
-    [[1]]  # F
+    [[0]],  # F
+    [[1]],  # M
+    [[1]],  # M
+    [[0]]  # F
 ])
 
 model = Model()
 
-model.add(Dense(2, 2))
-model.add(Activation("sigmoid"))
-model.add(Dense(2, 1))
-model.add(Activation("sigmoid"))
-model.add(Activation("softmax"))
+model.add(Dense(2, 3))
+model.add(Activation('tanh'))
+model.add(Dense(3, 2)) 
+model.add(Activation('tanh'))
+model.add(Activation('softmax'))
 
-model.fit(X_train, y_train, epochs=1000, learning_rate=0.01)
 
-frank = np.array([20,  2])  # 155 pounts, 68 inches
+model.fit(X_train, y_train, epochs=1000, learning_rate=0.1)
+
+frank = np.array(X_train)  # 155 pounts, 68 inches
 
 pred = model.predict(frank)
 
-print(pred)
+print(np.array(pred))

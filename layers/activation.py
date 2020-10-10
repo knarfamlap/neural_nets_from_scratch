@@ -53,7 +53,7 @@ class Activation(Layer):
         return exps / np.sum(exps)
 
     def softmax_prime(self, x):
-        jacobian_m = np.empty((len(x), len(x)))
+        jacobian_m = np.ones((len(x), len(x)))
 
         for i in range(len(jacobian_m)):
             for j in range(len(jacobian_m)):

@@ -1,10 +1,16 @@
 import numpy as np
 
+def mse(y_true, y_pred):
+    return np.mean(np.power(y_true - y_pred, 2))
+
+def mse_prime(y_true, y_pred):
+    return 2*(y_pred-y_true)/y_true.size
+
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x), axis=0)
 
 def softmax_prime(x):
-    jacobian_m = np.diag(x)
+    jacobian_m = np.ones((len(x), len(x)))
 
     for i in range(len(x)):
         for j in range(len(x)):
@@ -15,8 +21,8 @@ def softmax_prime(x):
 
     return jacobian_m
 
-x = [1.0, 2.0, 3.0, 4.0]
+x = [0.4975, 0.5024]
 
-soft = softmax(x)
+soft = softmax_prime(x)
 print(soft)
-print(softmax_prime(soft)) 
+# print(softmax_prime(soft)) 
