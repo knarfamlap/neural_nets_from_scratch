@@ -15,9 +15,9 @@ def softmax_prime(x):
     for i in range(len(x)):
         for j in range(len(x)):
             if i == j:
-                jacobian_m[i][j] = x[i] * (1 - x[j])
+                jacobian_m[i][j] = x[0][i] * (1 - x[0][j])
             else:
-                jacobian_m[i][j] = -x[i] * x[j]
+                jacobian_m[i][j] = -x[0][i] * x[0][j]
 
     return jacobian_m
 

@@ -25,9 +25,9 @@ y_train = np.array([
 
 model = Model()
 
-model.add(Dense(2, 3))
+model.add(Dense(2, 2))
 model.add(Activation('tanh'))
-model.add(Dense(3, 2)) 
+model.add(Dense(2, 2)) 
 model.add(Activation('tanh'))
 model.add(Activation('softmax'))
 
