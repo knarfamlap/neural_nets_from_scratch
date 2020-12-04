@@ -11,14 +11,14 @@ class Conv2D(Layer):
 
         for i in range(h - 2):
             for j in range(w - 2):
-                img_region = img[i: (i + 3), j: (j + 3)]
+                img_region = img[i:(i + 3), j:(j + 3)]
                 yield img_region, i, j
 
     def forward_propagation(self, input):
         self.last_input = input
         h, w = input.shape
 
-        output = np.zeros((h-2, w - 2, self.filter.shape[0]))
+        output = np.zeros((h - 2, w - 2, self.filter.shape[0]))
 
         for img_region, i, j in self.iterate_regions(input):
             output[i, j] = np.sum(img_region * self.filters, axis=(1, 2))

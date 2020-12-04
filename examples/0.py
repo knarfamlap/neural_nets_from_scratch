@@ -8,14 +8,7 @@ from layers.activation import Activation
 from layers.dense import Dense
 from model.model import Model
 
-
-
-X_train = np.array([
-    [[0, 0]],
-    [[0, 1]],
-    [[1, 0]],
-    [[1, 1]]
-])
+X_train = np.array([[[0, 0]], [[0, 1]], [[1, 0]], [[1, 1]]])
 y_train = np.array([
     [[0]],  # F
     [[1]],  # M
@@ -27,10 +20,9 @@ model = Model()
 
 model.add(Dense(2, 2))
 model.add(Activation('tanh'))
-model.add(Dense(2, 2)) 
+model.add(Dense(2, 2))
 model.add(Activation('tanh'))
 model.add(Activation('softmax'))
-
 
 model.fit(X_train, y_train, epochs=1000, learning_rate=0.1)
 
