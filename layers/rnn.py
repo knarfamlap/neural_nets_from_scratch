@@ -15,7 +15,7 @@ class RNN(Layer):
         self.bh = np.zeros((hidden_size, 1))
         self.by = np.zeros((output_size, 1))
 
-    def forward_propagation(self, inputs):
+    def forward(self, inputs):
         h = np.zeros((self.Whh.shape[0], 1))
 
         self.last_inputs = inputs
@@ -29,7 +29,7 @@ class RNN(Layer):
 
         return y, h
 
-    def backward_propagation(self, d_y, learn_rate=2e-2):
+    def backward(self, d_y, learn_rate=2e-2):
         n = len(self.last_inputs)
 
         # Calculate dL/dWhy and dL/dby

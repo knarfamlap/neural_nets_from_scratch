@@ -18,22 +18,23 @@ class Activation(Layer):
             self.activation_prime = self.softmax_prime
         else:
             raise ValueError(
-                "Only supported activations are: tanh, sigmoid, relu, and softmax")
+                "Only supported activations are: tanh, sigmoid, relu, and softmax"
+            )
 
-    def forward_propagation(self, input_data):
+    def forward(self, input_data):
         self.input = input_data
         self.output = self.activation(self.input)
 
         return self.output
 
-    def backward_propagation(self, output_error, learning_rate):
+    def backward(self, output_error, learning_rate):
         return self.activation_prime(self.input) * output_error
 
     def tanh(self, x):
         return np.tanh(x)
 
     def tanh_prime(self, x):
-        return 1 - np.tanh(x) ** 2
+        return 1 - np.tanh(x)**2
 
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))

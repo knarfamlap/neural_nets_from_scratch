@@ -14,7 +14,7 @@ class Conv2D(Layer):
                 img_region = img[i:(i + 3), j:(j + 3)]
                 yield img_region, i, j
 
-    def forward_propagation(self, input):
+    def forward(self, input):
         self.last_input = input
         h, w = input.shape
 
@@ -25,7 +25,7 @@ class Conv2D(Layer):
 
         return output
 
-    def backward_propagation(self, output_error, learning_rate):
+    def backward(self, output_error, learning_rate):
         grad_filters = np.zeros(self.filters.shape)
 
         for img_region, i, j in self.iterate_regions(self.last_input):
