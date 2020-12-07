@@ -16,17 +16,28 @@ class RNN(Layer):
         self.by = np.zeros((output_size, 1))
 
     def forward(self, inputs):
+        '''
+        Forward pass for vanilla RNN given the inputs. 
+        Returns the final output and its hidden state.
+        - inputs must be an array where each column is a one-hot vector. 
+            dimensions of each column are (input_size, 1). 
+        '''
+        # init the first hidden state
         h = np.zeros((self.Whh.shape[0], 1))
-
+        # store the curr input so they can be referenced in future
+        # time steps
         self.last_inputs = inputs
+        # store the current hidden state for future reference
         self.last_hs = {0: h}
-
+        # iterate through one-hot vectors
         for i, x in enumerate(inputs):
+            # update hidden state
             h = np.tanh(self.Wxh @ x + self.Whh @ h + self.bh)
+            # save hidden state
             self.last_hs[i + 1] = h
-
+        # calculate the output
         y = self.Why @ h + self.by
-
+        # return the output and the last hidden state
         return y, h
 
     def backward(self, d_y, learn_rate=2e-2):
