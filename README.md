@@ -1,4 +1,4 @@
-# Neural Nets From Scratch
+# Neural Nets From Scratch :sun: :clouds:
 
 
 ## Table of Contents
@@ -6,8 +6,6 @@
 * [About the Project](#about)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -36,11 +34,14 @@
   $ cd neural_nets_from_scratch
   ```
 
-  Once you're inside the directory, I recommended using a virtual enviroment. More on virtual enviroments [here]()
+  Once you're inside the directory, I recommended using a virtual enviroment. More on virtual enviroments [here]().
   Once you grabbed a virtual env, you can install the dependencies with the following command
 
   ```bash
   $ pip3 install -r requirements.txt
   ```
-  
+
+# Usage
+
+
 
