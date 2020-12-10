@@ -69,11 +69,11 @@
 
 So far I plan to implemnt the following layers
 
-[x] Dense
-[x] Activation
-[x] Conv2D
-[x] RNN
-[] LSTM
-[] GRU
+- [x] Dense
+- [x] Activation
+- [x] Conv2D
+- [x] RNN
+- [] LSTM
+- [] GRU
 
 
