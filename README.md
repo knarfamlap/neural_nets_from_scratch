@@ -1,4 +1,4 @@
-# Neural Nets From Scratch :sun: :clouds:
+# Neural Nets From Scratch :fire: :sunny:
 
 
 ## Table of Contents
@@ -14,14 +14,14 @@
 * [Acknowledgements](#acknowledgements)
   
 
-# About
+# About :bug:
 
   Neural Nets from Scratch is a project intended to build neural networks from the bottom up.
   The goal of this project is to learn how to implement basic neural network layers to gain 
   further understaning on how they work. This project also is intended for those who are curious
   about how libraries such as Tensorflow, or Pytorch work under the hood. 
 
-## Built With
+## Built With :hammer:
     
   The only library used in this project is numpy. 
 
@@ -73,7 +73,7 @@ So far I plan to implemnt the following layers
 - [x] Activation
 - [x] Conv2D
 - [x] RNN
-- [] LSTM
-- [] GRU
+- [ ] LSTM
+- [ ] GRU
 
 
