@@ -25,7 +25,7 @@
     
   The only library used in this project is numpy. 
 
-# Getting Started
+# Getting Started :microscope:
   
   The first thing you'll need to do is clone this repo, and change into into the neural-nets-from-scratch directory
 
@@ -41,7 +41,7 @@
   $ pip3 install -r requirements.txt
   ```
 
-# Usage
+# Usage :open_file_folder:
   
   This project is organinzed the following way
 
