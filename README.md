@@ -42,8 +42,38 @@
   ```
 
 # Usage
+  
+  This project is organinzed the following way
+
+### [Examples](/examples)
+
+  Contains examples that put the implementation into practice. I hope to implement at least one example for every layer
+  that I implement.
+
+### [Layers](/layers)
+
+  Contains all the implementation for the layers. Currently I have implemented 2D Convolutional, Dense, RNN, LSTM, and Activation layers.
+  The file [layers.py](/layers/layers.py) is the abstract class that extends all implemented layers.
+
+### [Model](/model)
+
+  Contains the implementation for the model class. The model class groups layers into an object with training features.
+  My goal with this class was to mimic the way Keras allows you to train neural nets.
+
+### [Utils](/utils)
+
+  Contains file with useful functions. For now, the only file in utils is [loss.py](/utils/loss.py). This file contains
+  all implementations regarding loss(cost) functions.
 
 # Roadmap
 
+So far I plan to implemnt the following layers
+
+[x] Dense
+[x] Activation
+[x] Conv2D
+[x] RNN
+[] LSTM
+[] GRU
 
 
