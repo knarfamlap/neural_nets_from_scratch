@@ -8,9 +8,6 @@
 * [Getting Started](#getting-started)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-<!-- * [Contributing](#contributing) -->
-<!-- * [License](#license) -->
-<!-- * [Contact](#contact) -->
 * [Acknowledgements](#acknowledgements)
   
 
@@ -65,7 +62,7 @@
   Contains file with useful functions. For now, the only file in utils is [loss.py](/utils/loss.py). This file contains
   all implementations regarding loss(cost) functions.
 
-# Roadmap
+# Roadmap :zap:
 
 So far I plan to implemnt the following layers
 
