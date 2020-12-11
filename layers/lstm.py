@@ -16,10 +16,13 @@ class LSTM(Layer):
         self.Wo = rand(input_size + hidden_size,
                        hidden_size)  # output gate weights
 
+        self.Wy = rand(input_size + hidden_size, hidden_size)
+
         self.bf = np.zeros((hidden_size, 1))  # forget gate bias
         self.bi = np.zeros((hidden_size, 1))  # input gate bias
         self.bc = np.zeros((hidden_size, 1))  # candidate gate bias
         self.bo = np.zeros((hidden_size, 1))  # output gate
+        self.by = np.zeros((hidden_size, 1))  # y bias
 
     def forward(self, inputs):
         # init first hidden state
@@ -31,19 +34,22 @@ class LSTM(Layer):
 
         for i, x in enumerate(inputs):
             # concatenate inputs and last hidden state
-            z = np.hstack(h, x))
+            z = np.hstack((h, x))
             # forget gate
             f_t = sigmoid(self.Wf @ z + bf)
             i_t = sigmoid(self.Wi @ z + bi)
             c_t = np.tanh(self.Wc @ z + bc)
 
-            self.Ct = f_t @ self.Ct + i_t @ c_t
+            self.Ct = f_t * self.Ct + i_t * c_t
 
             o_t = sigmoid(self.Wo @ z + bo)
 
-            h = o_t @ np.tanh(self.Ct)
-        
-        return h
+            h = o_t * np.tanh(self.Ct)
+
+        # output vector
+        y = h @ self.Wy + by
+
+        return y, h
 
     def backward(self):
         pass
